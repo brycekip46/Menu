@@ -9,12 +9,13 @@ import javax.swing.*;
 public class Menu_client extends JFrame {
 
     private static final int FRAME_WIDTH = 800;
-    private static final int FRAME_HEIGHT = 600;
+    private static final int FRAME_HEIGHT = 800;
     private JPanel mainPanel;
 
     public Menu_client() {
         setTitle("Food Menu");
         setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create the main panel
@@ -23,6 +24,11 @@ public class Menu_client extends JFrame {
         add(mainPanel);
 
         // Create the menu item
+        createMenuItem("pizza","C:\\Users\\user\\Desktop\\rocket.jpg");
+        createMenuItem("pizza","C:\\Users\\user\\Desktop\\rocket.jpg");
+        createMenuItem("pizza","C:\\Users\\user\\Desktop\\rocket.jpg");
+        createMenuItem("pizza","C:\\Users\\user\\Desktop\\rocket.jpg");
+        createMenuItem("pizza","C:\\Users\\user\\Desktop\\rocket.jpg");
         setVisible(true);
     }
 
@@ -40,7 +46,9 @@ public class Menu_client extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        JLabel imageLabel = new JLabel(new ImageIcon(img));
+		Image newImg = img.getScaledInstance(100, 100, Image.SCALE_SMOOTH); // Scale the Image to fit the label
+	
+        JLabel imageLabel = new JLabel(new ImageIcon(newImg));
         menuItemPanel.add(imageLabel);
 
         // Create the food name label
